@@ -24,6 +24,6 @@ public class TimeInvocationHandler implements InvocationHandler {
         long endTime = System.currentTimeMillis();
         long resultTime = endTime - startTime;
         log.info("TiemProxy 종료 resultTime={}", resultTime);
-        return null;
+        return result;
     }
 }

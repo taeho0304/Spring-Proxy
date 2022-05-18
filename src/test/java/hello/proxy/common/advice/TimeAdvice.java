@@ -8,6 +8,14 @@ import org.aopalliance.intercept.MethodInvocation;
 public class TimeAdvice implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        return null;
+        log.info("TimeProxy 실행");
+        long startTime = System.currentTimeMillis();
+
+        Object result = invocation.proceed();
+
+        long endTime = System.currentTimeMillis();
+        long resultTime = endTime - startTime;
+        log.info("TiemProxy 종료 resultTime={}", resultTime);
+        return result;
     }
 }
